@@ -1,0 +1,8 @@
+#!/bin/bash
+# resize - a TTY re-sizer for use with mintty Cygwin
+# Usage: resize <width> <height>
+WIDTH=$1
+HEIGHT=$2
+if [ "$WIDTH" = "" ]; then WIDTH=80; fi
+if [ "$HEIGHT" = "" ]; then HEIGHT=25; fi
+echo -en "\e[8;${HEIGHT};${WIDTH}t";

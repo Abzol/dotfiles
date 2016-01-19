@@ -1,0 +1,21 @@
+#!/bin/bash
+# prints a nice welcome message
+# usage: wake
+
+clear
+WIDTH=`tput cols`
+HOUR=`date +%H`
+if [ $HOUR -lt 12 ]; then
+    MESSAGE="Good Morning, $USER";
+elif [ $HOUR -gt 18 ]; then
+    MESSAGE="Good Evening, $USER";
+else
+    MESSAGE="Good Afternoon, $USER";
+fi
+LENGTH=$(printf "%s" "$MESSAGE" | wc -c) #clears LANG=C
+LENGTH=$(($WIDTH/2-$LENGTH/2))
+tput cuf $LENGTH
+echo $MESSAGE
+LENGTH=$(($WIDTH/2 - 4))
+tput cuf $LENGTH
+echo `date +%H:%M:%S`
