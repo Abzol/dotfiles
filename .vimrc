@@ -88,21 +88,29 @@ filetype plugin indent on
 " pythonic -----------------------------------------------------------------{{{
 augroup filetype_python
     autocmd!
-    autocmd FileType python     :iabbrev iff if:<esc>ha
-    autocmd FileType python     :iabbrev fiin for i in:<esc>ha
+    autocmd FileType python     :iabbrev iff if:<esc>i
+    autocmd FileType python     :iabbrev fiin for i in:<esc>i
 augroup END
 " }}}
 
-" bash -----------------------------------{{{
+" bash -----{{{
 augroup filetype_bash
     autocmd!
     autocmd FileType sh     :iabbrev iff if []; then<cr>fi<esc>k$2Ba
     autocmd FileType sh     :iabbrev eliff elif []; then<esc>2Ba
 augroup END
-"  }}}
+" }}}
+
+" cpp -----{{{ 
+augroup filetype_cpp
+    autocmd!
+    nnoremap ** 0i/* <esc>$a */<esc>
+    inoremap ** <esc>0i/* <esc>$a */
+augroup END
+" }}}
 
 " Time for custom bindings
-inoreabbrev @@ Copyright (C) 2015 Wolfie Mossberg - All Rights Reserved<esc>oContact: hakurou46@gmail.com
+inoreabbrev @@ Copyright (C) 2015 Wolfie Mossberg - All Rights Reserved<cr>Contact: hakurou46@gmail.com
 inoremap jj <esc>
 nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>G$
 nnoremap <leader>sv :so $MYVIMRC<cr>
