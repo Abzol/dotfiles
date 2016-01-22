@@ -37,4 +37,3 @@ alias mkdir='mkdir -p'
 alias open='cygstart'
 alias revim='vim -c "normal! '\''0"' 
 
-PI=192.168.2.224
