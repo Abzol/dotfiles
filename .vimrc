@@ -106,6 +106,7 @@ augroup filetype_cpp
     autocmd!
     nnoremap ** 0i/* <esc>$a */<esc>
     inoremap ** <esc>0i/* <esc>$a */
+    inoremap <leader>ia <esc>:call IndentCArgs()
 augroup END
 " }}}
 
