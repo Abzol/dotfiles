@@ -35,5 +35,5 @@ alias ls='ls -lh --color=tty'
 alias mkdir='mkdir -p'
 alias open='cygstart'
 alias revim='vim -c "normal! '\''0"' 
-    alias sigh='chown Olivia:Ingen'
+alias sigh='chown Olivia:Ingen'
 
