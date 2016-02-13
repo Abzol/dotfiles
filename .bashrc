@@ -25,14 +25,10 @@ shopt -s nocaseglob
 wake
 
 alias ..='cd ..'
-alias cdd='cd /cygdrive/e/Wolfie/Desktop'
-alias cde='cd /cygdrive/e/Wolfie'
 alias clear='cls'
 alias cls='tput clear' #root for `clear`
-alias ffmpeg='/cygdrive/e/Wolfie/Tools/ffmpeg/bin/ffmpeg.exe'
 alias la='ls -lAh --color=tty'
 alias ls='ls -lh --color=tty'
 alias mkdir='mkdir -p'
-alias open='cygstart'
 alias revim='vim -c "normal! '\''0"' 
 
