@@ -21,12 +21,13 @@ shopt -s nocaseglob
 # if [ -f "${HOME}/.bash_aliases" ]; then
 #   source "${HOME}/.bash_aliases"
 # fi
+if [ `uname -o` == "Cygwin" ]; then
+  source "${HOME}/.cygrc"
+fi
 
 wake
 
 alias ..='cd ..'
-alias clear='cls'
-alias cls='tput clear' #root for `clear`
 alias la='ls -lAh --color=tty'
 alias ls='ls -lh --color=tty'
 alias mkdir='mkdir -p'
