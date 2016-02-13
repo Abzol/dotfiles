@@ -15,16 +15,15 @@
 [[ "$-" != *i* ]] && return
 # Use case-insensitive filename globbing
 shopt -s nocaseglob
-# Aliases
-#
-# Some people use a different file for aliases
-# if [ -f "${HOME}/.bash_aliases" ]; then
-#   source "${HOME}/.bash_aliases"
-# fi
+
+# Run .cygrc if on a cygwin install. I know it doesnt check that the file
+# actually exists first. It crashes, I presume.
 if [ `uname -o` == "Cygwin" ]; then
   source "${HOME}/.cygrc"
 fi
 
+# Note that my ~/bin folder needs to be added to $PATH from your favourite
+# non-.bashrc file (i.e. .profile or .bash_profile or what have you)
 wake
 
 alias ..='cd ..'
