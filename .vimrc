@@ -118,10 +118,9 @@ augroup END
 " }}}
 
 " Time for custom bindings
-inoreabbrev @@ Copyright (C) 2015 Wolfie Mossberg - All Rights Reserved<cr>Contact: hakurou46@gmail.com
+inoreabbrev @@ Copyright (C) 2016 Wolfie Mossberg - All Rights Reserved<cr>Contact: hakurou46@gmail.com
 inoremap jj <esc>
 nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>G$
 nnoremap <leader>sv :so $MYVIMRC<cr>
-nnoremap - Vdi<cr><esc>Pk
 inoremap <c-u> <esc>vawUea
 nnoremap <leader>r :w<cr>:!%:p<cr>
