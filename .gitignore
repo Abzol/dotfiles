@@ -1,0 +1,3 @@
+#ignore all except tracked
+#just -f add new files, dork
+*
