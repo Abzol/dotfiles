@@ -1,14 +1,14 @@
 " set leader
 let mapleader=","
 
-" Vimscript file settings ----------------------{{{
+" Vimscript file settings -----{{{
 augroup filetype_vim
     autocmd!
     autocmd FileType vim setlocal foldmethod=marker
 augroup END
 " }}}
 
-" Set tabstobs and compats -------------{{{
+" Set tabstobs and compats -----{{{
 set nocompatible
 set modelines=0
 
@@ -18,7 +18,7 @@ set softtabstop=4
 set expandtab
 " }}}
 
-" set some common options ------------{{{
+" set some common options -----{{{
 set encoding=utf-8
 set scrolloff=3
 set autoindent
@@ -36,7 +36,7 @@ set relativenumber
 set undofile
 " }}}
 
-" tame searching ----------------{{{
+" tame searching -----{{{
 nnoremap / /\v
 vnoremap / /\v
 set ignorecase
@@ -58,7 +58,7 @@ set colorcolumn=85
 " execute "set colorcolumn=" .join(range(81,355), ',')
 " }}}
 
-" tame fingers -------{{{
+" tame fingers -----{{{
 nnoremap <left> <nop>
 nnoremap <down> <nop>
 nnoremap <up> <nop>
@@ -69,7 +69,7 @@ inoremap <up> <nop>
 inoremap <right> <nop>
 " }}}
 
-" more vim sanity fixes -------{{{
+" more vim sanity fixes -----{{{
 nnoremap j gj
 nnoremap k gk
 
@@ -85,28 +85,35 @@ colo monokai
 execute pathogen#infect()
 filetype plugin indent on
 
-" pythonic -----------------------------------------------------------------{{{
+" pythonic -----{{{
 augroup filetype_python
     autocmd!
-    autocmd FileType python     :iabbrev iff if:<esc>i
-    autocmd FileType python     :iabbrev fiin for i in:<esc>i
+    autocmd FileType python     :inoreabbrev iff if:<esc>i
+    autocmd FileType python     :inoreabbrev fiin for i in:<esc>i
 augroup END
 " }}}
 
 " bash -----{{{
 augroup filetype_bash
     autocmd!
-    autocmd FileType sh     :iabbrev iff if []; then<cr>fi<esc>k$2Ba
-    autocmd FileType sh     :iabbrev eliff elif []; then<esc>2Ba
+    autocmd FileType sh     :inoreabbrev iff if []; then<cr>fi<esc>k$2Ba
+    autocmd FileType sh     :inoreabbrev eliff elif []; then<esc>2Ba
 augroup END
 " }}}
 
 " cpp -----{{{ 
 augroup filetype_cpp
     autocmd!
-    nnoremap ** 0i/* <esc>$a */<esc>
-    inoremap ** <esc>0i/* <esc>$a */
-    inoremap <leader>ia <esc>:call IndentCArgs()
+    autocmd FileType cpp    :nnoremap ** 0i/* <esc>$a */<esc>
+    autocmd FileType cpp    :inoremap ** <esc>0i/* <esc>$a */
+    autocmd FileType cpp    :inoremap <leader>ia <esc>:call IndentCArgs()
+augroup END
+" }}}
+
+" js -----{{{
+augroup filetype_js
+    autocmd!
+    autocmd FileType javascript :inoremap dgbid document.getElementById("");<esc>2hi
 augroup END
 " }}}
 
