@@ -113,7 +113,9 @@ augroup END
 " js -----{{{
 augroup filetype_js
     autocmd!
+    autocmd Filetype javascript :inoreabbrev iff if () {<esc>2hi
     autocmd FileType javascript :inoremap dgbid document.getElementById("");<esc>2hi
+    autocmd FileType javascript :inoreabbrev clog console.log();<esc>hi
 augroup END
 " }}}
 
@@ -124,3 +126,4 @@ nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>G$
 nnoremap <leader>sv :so $MYVIMRC<cr>
 inoremap <c-u> <esc>vawUea
 nnoremap <leader>r :w<cr>:!%:p<cr>
+inoremap kk <esc>o
