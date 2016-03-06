@@ -27,8 +27,8 @@ fi
 wake
 
 alias ..='cd ..'
+alias america='echo please no'
 alias la='ls -lAh --color=tty'
 alias ls='ls -lh --color=tty'
 alias mkdir='mkdir -p'
 alias revim='vim -c "normal! '\''0"' 
-

@@ -1,3 +1,4 @@
-alias open='cygstart'
+alias clip='/dev/clipboard'
 alias clear='cls'
 alias cls='tput clear' #root for `clear`
+alias open='cygstart'

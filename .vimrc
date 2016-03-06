@@ -127,3 +127,4 @@ nnoremap <leader>sv :so $MYVIMRC<cr>
 inoremap <c-u> <esc>vawUea
 nnoremap <leader>r :w<cr>:!%:p<cr>
 inoremap kk <esc>o
+inoremap binbash #!/bin/bash
