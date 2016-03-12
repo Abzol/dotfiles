@@ -1,0 +1,5 @@
+#!/bin/bash
+# gets from clipboard
+# usage: getclip
+
+cat /dev/clipboard

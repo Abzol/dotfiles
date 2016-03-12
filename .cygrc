@@ -1,4 +1,4 @@
-alias clip='/dev/clipboard'
+PATH=$PATH:~/bin/cyg/
 alias clear='cls'
 alias cls='tput clear' #root for `clear`
 alias open='cygstart'
