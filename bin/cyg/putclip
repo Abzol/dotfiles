@@ -2,5 +2,4 @@
 # puts to clipboard
 # usage: cat file | putclip
 
-read foo
-echo $foo > /dev/clipboard
+cat >/dev/clipboard
