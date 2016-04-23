@@ -1,23 +1,30 @@
 #!/bin/bash
 AN="-c:a libopus -b:a 64K"
-while getopts ":i:aso:" opt; do
+FROM=""
+TO=""
+while getopts ":i:aso:f:t:" opt; do
     case $opt in
         a)
-            echo "Audio stream removed"
             AN="-an"
             ;;
         s)
-            echo "Subtitle stream removed"
             SN="-sn"
             ;;
         i)
             INPUT=$OPTARG
             if [ ! -f $INPUT ]; then
-                echo "Please use a real file!";
+                echo "$INPUT is not a valid file descriptor!" >&2;
+                exit 1
             fi
             ;;
         o)
             OUTPUT=$OPTARG
+            ;;
+        f)
+            FROM="-ss $OPTARG"
+            ;;
+        t)
+            TO="-t $OPTARG"
             ;;
         \?)
             echo "Invalid" >&2
@@ -33,6 +40,8 @@ done
 echo "y" | /cygdrive/e/Wolfie/tools/ffmpeg/bin/ffmpeg.exe -i "$INPUT"\
     -c:v libvpx-vp9\
     -b:v 1000K\
+    $FROM\
+    $TO\
     -pass 1\
     -threads 8\
     -speed 4\
@@ -44,18 +53,20 @@ echo "y" | /cygdrive/e/Wolfie/tools/ffmpeg/bin/ffmpeg.exe -i "$INPUT"\
     webm\
     NUL; 
 /cygdrive/e/Wolfie/tools/ffmpeg/bin/ffmpeg.exe -i "$INPUT"\
-   -c:v libvpx-vp9\
-   -b:v 1000K\
-   -pass 2\
-   -threads 8\
-   -speed 1\
-   -tile-columns 6\
-   -frame-parallel 1\
-   -auto-alt-ref 1\
-   -lag-in-frames 25\
-   $AN\
-   $SN\
-   -f\
-   webm\
-   "$OUTPUT";
+    -c:v libvpx-vp9\
+    -b:v 1000K\
+    $FROM\
+    $TO\
+    -pass 2\
+    -threads 8\
+    -speed 1\
+    -tile-columns 6\
+    -frame-parallel 1\
+    -auto-alt-ref 1\
+    -lag-in-frames 25\
+    $AN\
+    $SN\
+    -f\
+    webm\
+    "$OUTPUT";
 rm NUL
