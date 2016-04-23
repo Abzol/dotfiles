@@ -1,0 +1,60 @@
+#!/bin/bash
+AN="-c:a libopus -b:a 64K"
+while getopts ":i:aso:" opt; do
+    case $opt in
+        a)
+            echo "Audio stream removed"
+            AN="-an"
+            ;;
+        s)
+            echo "Subtitle stream removed"
+            SN="-sn"
+            ;;
+        i)
+            INPUT=$OPTARG
+            if [ ! -f $INPUT ]; then
+                echo "Please use a real file!";
+            fi
+            ;;
+        o)
+            OUTPUT=$OPTARG
+            ;;
+        \?)
+            echo "Invalid" >&2
+            exit 1
+            ;;
+        :)
+            echo "-$OPTARG requires an argument!" >&2
+            exit 1
+            ;;
+    esac
+done
+
+echo "y" | /cygdrive/e/Wolfie/tools/ffmpeg/bin/ffmpeg.exe -i "$INPUT"\
+    -c:v libvpx-vp9\
+    -b:v 1000K\
+    -pass 1\
+    -threads 8\
+    -speed 4\
+    -tile-columns 6\
+    -frame-parallel 1\
+    -an\
+    -sn\
+    -f\
+    webm\
+    NUL; 
+/cygdrive/e/Wolfie/tools/ffmpeg/bin/ffmpeg.exe -i "$INPUT"\
+   -c:v libvpx-vp9\
+   -b:v 1000K\
+   -pass 2\
+   -threads 8\
+   -speed 1\
+   -tile-columns 6\
+   -frame-parallel 1\
+   -auto-alt-ref 1\
+   -lag-in-frames 25\
+   $AN\
+   $SN\
+   -f\
+   webm\
+   "$OUTPUT" > /dev/null;
