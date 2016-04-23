@@ -1,0 +1,10 @@
+#!/bin/bash
+# gets or puts to clipboard
+# usage: cb < file OR cb > file 
+
+if isatty 0
+then
+    cat /dev/clipboard
+else
+    cat >/dev/clipboard
+fi
