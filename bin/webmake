@@ -69,4 +69,3 @@ echo "y" | /cygdrive/e/Wolfie/tools/ffmpeg/bin/ffmpeg.exe -i "$INPUT"\
     -f\
     webm\
     "$OUTPUT";
-rm NUL
