@@ -1,9 +1,12 @@
 " set leader
 let mapleader=","
+" vim doesn't play well with setlocal foldlevelstart
+" so just call execute normal! zM in filetypesettings
 
 " Vimscript file settings -----{{{
 augroup filetype_vim
     autocmd!
+    autocmd Filetype vim execute "normal! zM"
     autocmd FileType vim setlocal foldmethod=marker
 augroup END
 " }}}
@@ -67,6 +70,7 @@ inoremap <left> <nop>
 inoremap <down> <nop>
 inoremap <up> <nop>
 inoremap <right> <nop>
+set mouse=""
 " }}}
 
 " more vim sanity fixes -----{{{
@@ -78,12 +82,21 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+if has('gui_running')
+    set guioptions-=m "no menu
+    set guioptions-=T "no toolbar
+    set guioptions-=r "no scrollbar
+    set guioptions-=L "no left scrollbar
+endif
 " }}}
 
 syntax on
-colo monokai
-execute pathogen#infect()
-filetype plugin indent on
+try
+    colo monokai
+    execute pathogen#infect()
+    filetype plugin indent on
+catch
+endtry
 
 " pythonic -----{{{
 augroup filetype_python
@@ -113,11 +126,15 @@ augroup END
 " js -----{{{
 augroup filetype_js
     autocmd!
-    autocmd Filetype javascript :inoreabbrev iff if () {<esc>2hi
+    autocmd Filetype javascript let javaScript_fold=1
+    autocmd Filetype javascript :inoreabbrev iff if () <esc>2hi
     autocmd FileType javascript :inoremap dgbid document.getElementById("");<esc>2hi
     autocmd FileType javascript :inoreabbrev clog console.log();<esc>hi
 augroup END
 " }}}
+
+"vim needs this down here
+set foldlevelstart=99
 
 " Time for custom bindings
 inoreabbrev @@ Copyright (C) 2016 Wolfie Mossberg - All Rights Reserved<cr>Contact: hakurou46@gmail.com
