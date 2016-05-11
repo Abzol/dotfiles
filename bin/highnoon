@@ -1,0 +1,4 @@
+#!/bin/bash
+
+NOON=$(curl -s "http://www.timeanddate.com/worldclock/sunearth.html?day=`date +"%d"`&month=`date +"%m"`year=`date +"%Y"`&hour=`date +"%H"`&min=`date +"%M"`&sec=0&n=&ntxt=&earth=0" | grep -o -E -e ">\w*</a><span id=p0s" | grep -oEe ">\w*<");
+echo "${NOON:1: -4}"
