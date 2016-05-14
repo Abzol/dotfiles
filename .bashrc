@@ -18,19 +18,34 @@ shopt -s nocaseglob
 
 # Run .cygrc if on a cygwin install. I know it doesnt check that the file
 # actually exists first. It crashes, I presume.
-if [ `uname -o` == "Cygwin" ]; then
+sysn=`uname -s`
+sysn="${sysn:0:6}"
+if [ $sysn == "CYGWIN" ]; then
   source "${HOME}/.cygrc"
 fi
+if [ $sysn == "Darwin" ]; then
+  BSD=true
+fi
+# please pretty this up into a piece of code that doesnt use
+# a temporary variable?
 
-# Note that my ~/bin folder needs to be added to $PATH from your favourite
-# non-.bashrc file (i.e. .profile or .bash_profile or what have you)
+#adds ~/bin to path if its not there already, i guess
+if !([[ ":$PATH:" == *":$HOME/bin:"* ]]); then
+  PATH=$PATH:~/bin/
+fi
+
 wake
 
 alias ..='cd ..'
 alias america='echo please no'
 alias la='ls -lAh --color=tty'
-alias ls='ls -lh --color=tty'
+if !($BSD); then
+  alias ls='ls -lh --color=tty'
+else
+  alias ls='ls -lGh'
+fi
 alias mkdir='mkdir -p'
 alias revim='vim -c "normal! '\''0"' 
 alias splash='echo But nothing happened.'
 alias sra='chmod a+r'
+export PS1="\[$(tput setaf 7)\][\[$(tput setaf 6)\]\u\[$(tput setaf 7)\]@\[$(tput setaf 3)\]\h\[$(tput setaf 7)\]:\[$(tput setaf 2)\]\W\[$(tput setaf 7)\]] $ \[$(tput sgr0)\]"
