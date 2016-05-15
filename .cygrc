@@ -1,6 +1,6 @@
+# .cygrc
+
 PATH=$PATH:~/bin/cyg/
 alias clear='cls'
 alias cls='tput clear' #root for `clear`
 alias open='cygstart'
-alias up-lia='scp -r /cygdrive/e/Wolfie/Documents/My\ Games/FINAL\ FANTASY\ XIV\ -\ A\ Realm\ Reborn/FFXIV_CHR004000174A9A9955 wolfie@fluffie.st:~/ff'
-alias down-lia='mkdir -p /cygdrive/e/Wolfie/Documents/My\ Games/FINAL\ FANTASY\ XIV\ -\ A\ Realm\ Reborn/FFXIV_CHR004000174A9A9955; scp -r wolfie@fluffie.st:~/ff/* /cygdrive/e/Wolfie/Documents/My\ Games/FINAL\ FANTASY\ XIV\ -\ A\ Realm\ Reborn/FFXIV_CHR004000174A9A9955'

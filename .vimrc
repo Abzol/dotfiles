@@ -6,7 +6,7 @@ let mapleader=","
 " Vimscript file settings -----{{{
 augroup filetype_vim
     autocmd!
-    autocmd Filetype vim execute "normal! zM"
+    autocmd Filetype vim execute "normal! zM<cr>"
     autocmd FileType vim setlocal foldmethod=marker
 augroup END
 " }}}
@@ -126,15 +126,17 @@ augroup END
 " js -----{{{
 augroup filetype_js
     autocmd!
-    autocmd Filetype javascript let javaScript_fold=1
+    autocmd Filetype javascript setlocal foldmethod=syntax
     autocmd Filetype javascript :inoreabbrev iff if () <esc>2hi
     autocmd FileType javascript :inoremap dgbid document.getElementById("");<esc>2hi
     autocmd FileType javascript :inoreabbrev clog console.log();<esc>hi
 augroup END
 " }}}
 
-"vim needs this down here
+" folding -----{{{
+let javaScript_fold=1
 set foldlevelstart=99
+" }}}
 
 " Time for custom bindings
 inoreabbrev @@ Copyright (C) 2016 Wolfie Mossberg - All Rights Reserved<cr>Contact: hakurou46@gmail.com
