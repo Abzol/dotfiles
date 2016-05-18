@@ -77,7 +77,6 @@ set mouse=""
 nnoremap j gj
 nnoremap k gk
 
-nnoremap <leader>w <C-w>v<C-w>
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
@@ -146,4 +145,5 @@ nnoremap <leader>sv :so $MYVIMRC<cr>
 inoremap <c-u> <esc>vawUea
 nnoremap <leader>r :w<cr>:!%:p<cr>
 inoremap kk <esc>o
-inoremap binbash #!/bin/bash
+nnoremap <leader>w <C-w>v
+inoreabbrev binbash #!/bin/bash
