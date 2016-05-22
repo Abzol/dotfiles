@@ -33,6 +33,7 @@ else
   alias la='\ls -lAGh'
   alias ls='\ls -lGh'
 fi
+alias highnoon="echo It\'s currently high noon in $(. ~/bin/highnoon)."
 alias mkdir='mkdir -p'
 alias revim='vim -c "normal! '\''0"' 
 alias splash='echo But nothing happened.'
