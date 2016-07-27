@@ -37,6 +37,8 @@ set backspace=indent,eol,start
 set laststatus=2
 set relativenumber
 set undofile
+set splitright
+set splitbelow
 " }}}
 
 " tame searching -----{{{
@@ -87,11 +89,14 @@ if has('gui_running')
     set guioptions-=r "no scrollbar
     set guioptions-=L "no left scrollbar
 endif
+
+let g:netrw_liststyle= 3
+let g:netrw_browse_split= 2
 " }}}
 
 syntax on
 try
-    colo monokai
+    colo monolivia
     execute pathogen#infect()
     filetype plugin indent on
 catch
@@ -137,6 +142,10 @@ let javaScript_fold=1
 set foldlevelstart=99
 " }}}
 
+" abbrev -----{{{
+inoreabbrev undef undefined
+" }}}
+
 " Time for custom bindings
 inoreabbrev @@ Copyright (C) 2016 Wolfie Mossberg - All Rights Reserved<cr>Contact: hakurou46@gmail.com
 inoremap jj <esc>
@@ -144,6 +153,7 @@ nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>G$
 nnoremap <leader>sv :so $MYVIMRC<cr>
 inoremap <c-u> <esc>vawUea
 nnoremap <leader>r :w<cr>:!%:p<cr>
+nnoremap <leader>k :vnew<cr>:E<cr>:vertical resize 40<cr>
 inoremap kk <esc>o
 nnoremap <leader>w <C-w>v
 inoreabbrev binbash #!/bin/bash
