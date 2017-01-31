@@ -34,7 +34,10 @@ else
   alias ls='\ls -lGh'
 fi
 alias mkdir='mkdir -p'
+alias python='python3'
 alias revim='vim -c "normal! '\''0"' 
 alias splash='echo But nothing happened.'
 alias sra='chmod a+r'
 alias xyzzy='echo Nothing happens.'
+
+export PS1="\[$(tput setaf 7)\][\[$(tput setaf 6)\]\u\[$(tput setaf 7)\]@\[$(tput setaf 3)\]\h\[$(tput setaf 7)\]:\[$(tput setaf 2)\]\W\[$(tput setaf 7)\]] $ \[$(tput sgr0)\]"
