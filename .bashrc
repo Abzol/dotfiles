@@ -28,13 +28,14 @@ alias ..='cd ..'
 alias america='echo please no'
 if ! (($BSD)); then
   alias la='\ls -lAh --color=tty'
-  alias ls='\ls -lh --color=tty'
+  alias ll='\ls -lh --color=tty'
+  alias ls='\ls -h --color=tty'
 else
   alias la='\ls -lAGh'
-  alias ls='\ls -lGh'
+  alias ll='\ls -lGh'
+  alias ls='\ls -Gh'
 fi
 alias mkdir='mkdir -p'
-alias python='python3'
 alias revim='vim -c "normal! '\''0"' 
 alias splash='echo But nothing happened.'
 alias sra='chmod a+r'
